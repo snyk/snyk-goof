@@ -36,6 +36,9 @@ exports.index = function (req, res, next) {
 
 exports.admin = function (req, res, next) {
   console.log(req.body);
+  // add comment here
+  console.log(req.username);
+  // add another comment here
   User.find({ username: req.body.username, password: req.body.password }, function (err, users) {
     if (users.length > 0) {
       return res.render('admin', {
