@@ -128,7 +128,7 @@ exports.destroy = function (req, res, next) {
   });
 };
 
-exports.destroy2 = function (req, res, next) {
+exports.destroy3 = function (req, res, next) {
   Todo.findById(req.params.id, function (err, todo) {
 
     try {
