@@ -153,6 +153,18 @@ exports.update = function(req, res, next) {
   });
 };
 
+exports.updateErr = function(req, res, next) {
+  Todo.findById(req.params.id, function (err, todo) {
+
+    todo.content    = req.body.content;
+    todo.updated_at = Date.now();
+    todo.save(function (err, todo, count) {
+      if(err) return next(err);
+
+      res.redirect('/');
+    });
+  });
+};
 // ** express turns the cookie key to lowercase **
 exports.current_user = function (req, res, next) {
 
